@@ -1,12 +1,11 @@
 import json
 import telebot
-from dotenv import load_dotenv
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 import os
-load_dotenv()
 
 
-TOKEN = os.getenv("TOKEN")
+
+TOKEN = "7826152623:AAGPlVwcScLDOo7LxC_xAUK24M0KSDttODY"
 bot = telebot.TeleBot(TOKEN)
 
 TEST_FILE = "test_savollari.json"
