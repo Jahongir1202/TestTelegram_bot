@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1808774257,
+        "name": "gsgs",
+        "address": "hshs",
+        "school": "hshs",
+        "phone": "bsb",
+        "age": 11,
+        "results": {
+            "Matematika o'qituvchisi": 10,
+            "Rassom": 6
+        },
+        "total_score": 16,
+        "current_question": 1
+    },
+    {
+        "id": 7343507900,
+        "name": "Jahongir",
+        "address": "Tagob",
+        "school": "37",
+        "phone": "7272782828",
+        "age": 11,
+        "results": {
+            "Matematika o'qituvchisi": 10,
+            "Muhandis": 10
+        },
+        "total_score": 20
+    }
+]

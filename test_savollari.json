@@ -1,0 +1,18 @@
+[
+    {
+        "savol": "Qaysi faoliyat sizga ko'proq yoqadi?",
+        "variants": [
+            {"text": "Raqamlar bilan ishlash", "kasb": "Matematika o'qituvchisi", "ball": 10},
+            {"text": "Musiqa ijro etish", "kasb": "Musiqachi", "ball": 5},
+            {"text": "Kitob o'qish va tahlil qilish", "kasb": "Adabiyotchi", "ball": 2}
+        ]
+    },
+    {
+        "savol": "Qaysi dars sizga qiziqroq?",
+        "variants": [
+            {"text": "Fizika", "kasb": "Muhandis", "ball": 10},
+            {"text": "San'at", "kasb": "Rassom", "ball": 6},
+            {"text": "Jismoniy tarbiya", "kasb": "Sportchi", "ball": 7}
+        ]
+    }
+]
