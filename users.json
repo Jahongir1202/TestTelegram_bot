@@ -1,29 +1,31 @@
 [
     {
-        "id": 1808774257,
-        "name": "gsgs",
-        "address": "hshs",
-        "school": "hshs",
-        "phone": "bsb",
+        "id": 396193383,
+        "name": "Jahon",
+        "address": "Farg‘ona",
+        "school": "37",
+        "phone": "901550280",
         "age": 11,
         "results": {
-            "Matematika o'qituvchisi": 10,
-            "Rassom": 6
+            "IT": 37,
+            "Robotatexnika": 1
         },
-        "total_score": 16,
-        "current_question": 1
+        "total_score": 38
     },
     {
-        "id": 7343507900,
-        "name": "Jahongir",
-        "address": "Tagob",
-        "school": "37",
-        "phone": "7272782828",
+        "id": 1808774257,
+        "name": "kim sokim",
+        "address": "Farg‘ona",
+        "school": "33",
+        "phone": "888",
         "age": 11,
         "results": {
-            "Matematika o'qituvchisi": 10,
-            "Muhandis": 10
+            "IT": 9,
+            "Filologiya": 15,
+            "Robotatexnika": 6,
+            "Biznes": 8,
+            "Harbiy": 1
         },
-        "total_score": 20
+        "total_score": 39
     }
 ]
