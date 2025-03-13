@@ -45,8 +45,8 @@ def start(message):
     bot.register_next_step_handler(msg, get_address)
 
 # Sertifikat rasmini yuklash
-certificate_path = "/home/jahon/PycharmProjects/Weking_tmebot/jahon_sertifikat.jpg"  # Yuklangan fayl
-output_path = "/home/jahon/PycharmProjects/Weking_tmebot/jahon_sertifikat1.jpg"  # Natija fayli
+certificate_path = "/TestTelegram_bot/jahon_sertifikat.jpg"  # Yuklangan fayl
+output_path = "/TestTelegram_bot/jahon_sertifikat1.jpg"  # Natija fayli
 
 
 
