@@ -3,15 +3,16 @@ import telebot
 from dotenv import load_dotenv
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 import os
-load_dotenv()
+from PIL import Image, ImageDraw, ImageFont
 
 
-TOKEN = os.getenv("7826152623:AAGPlVwcScLDOo7LxC_xAUK24M0KSDttODY")
+
+TOKEN = "7826152623:AAGPlVwcScLDOo7LxC_xAUK24M0KSDttODY"
 bot = telebot.TeleBot(TOKEN)
 
 TEST_FILE = "test_savollari.json"
 USERS_FILE = "users.json"
-CERTIFICATE_FILE = "/home/xtreme/PycharmProjects/Weking_tmebot/250697684196070-1.pdf"
+CERTIFICATE_FILE = "/home/jahon/PycharmProjects/Weking_tmebot/250697684196070-1.pdf"
 
 
 def load_data(file):
@@ -43,11 +44,24 @@ def start(message):
     msg = bot.send_message(chat_id, "👋 Assalomu alaykum! Ismingizni va familiyangizni kiriting:")
     bot.register_next_step_handler(msg, get_address)
 
+# Sertifikat rasmini yuklash
+certificate_path = "/home/jahon/PycharmProjects/Weking_tmebot/jahon_sertifikat.jpg"  # Yuklangan fayl
+output_path = "/home/jahon/PycharmProjects/Weking_tmebot/jahon_sertifikat1.jpg"  # Natija fayli
+
+
+
 
 def get_address(message):
     chat_id = message.chat.id
     name = message.text.strip()
-    msg = bot.send_message(chat_id, "🏠 Yashash manzilingizni kiriting:")
+
+    markup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    locations = ["Andijon shaxar", "Chinobot", "Jarqo'rg'on", "Baliqchi"]
+
+    for location in locations:
+        markup.add(KeyboardButton(location))
+
+    msg = bot.send_message(chat_id, "🏠 Yashash manzilingizni tanlang:", reply_markup=markup)
     bot.register_next_step_handler(msg, get_school, name)
 
 
@@ -235,11 +249,37 @@ def is_in_top_10(user):
 
 
 def send_certificate(chat_id, user):
-    if os.path.exists(CERTIFICATE_FILE):
-        with open(CERTIFICATE_FILE, "rb") as cert:
+    user_name = user['name']  # Foydalanuvchi ismini olish
+
+    # Rasmni ochish
+    image = Image.open(certificate_path)
+    draw = ImageDraw.Draw(image)
+
+    # Shrift sozlamalari
+    font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    font_size = 80
+    font = ImageFont.truetype(font_path, font_size)
+
+    # Ismni joylashtirish koordinatalari
+    text_position = (1000, 1000)  # Matnni joylashtirish uchun mos keladigan joy
+    text_color = (0, 0, 0)  # Qora rang
+
+    # Ismni rasmga qo‘shish
+    draw.text(text_position, user_name, font=font, fill=text_color)
+
+    # Rasmni saqlash
+    output_path = f"/home/jahon/PycharmProjects/Weking_tmebot/certificate_{chat_id}.jpg"
+    image.save(output_path)
+
+
+
+
+    if os.path.exists(output_path):
+        with open(output_path, "rb") as cert:
             bot.send_document(chat_id, cert, caption=f"🎉 Tabriklaymiz, {user['name']}! Siz TOP 10 talikka kirdingiz!")
     else:
         bot.send_message(chat_id, "❌ Sertifikat fayli topilmadi!")
-
+    if os.path.exists(output_path):
+        os.remove(output_path)
 
 bot.polling(none_stop=True)
